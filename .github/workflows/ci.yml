@@ -13,8 +13,15 @@ env:
   ITCHIO_USERNAME: ${{secrets.ITCHIO_USERNAME}}
   PROJECT_NAME: "pixel-knight"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   Build:
+    environment:
+      name: Itch.io
+      url: https://fubblea.itch.io/pixel-knight
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Source Code
