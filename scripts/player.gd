@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: float = -275.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var audio_player: AudioStreamPlayer2D = $DeathSound
 
 var is_dying: bool = false
 
@@ -36,18 +37,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Play animations
-	if is_on_floor() and not is_dying:
+	if not is_dying:
 		if direction != 0:
 			animated_sprite_2d.play("run")
 		elif direction == 0:
 			animated_sprite_2d.play("idle")
-	elif not is_on_floor() and not is_dying:
-		animated_sprite_2d.play("jump")
 
 	move_and_slide()
 
 func die() -> void:
+	if not is_dying:
+		animated_sprite_2d.play("death")
+		audio_player.play() # Play death sound
 	is_dying = true # Set dying state to true
-	animated_sprite_2d.play("death")
-	# Optionally, you can also emit a signal or handle other game logic here.
-	print("Player has died.")

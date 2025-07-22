@@ -15,6 +15,10 @@ run/main_scene="uid://dd8e5awnlp5mt"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Music="*res://scenes/music.tscn"
+
 [input]
 
 jump={
