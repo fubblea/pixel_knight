@@ -12,12 +12,12 @@ var score: int = 0
 
 func _ready() -> void:
 	Engine.time_scale = 1.0 # Reset time scale
-	score_label.text = "Score: " + str(score) + "/" + str(WIN_SCORE)
+	score_label.text = "Coins: " + str(score) + "/" + str(WIN_SCORE)
 	victory_label.hide() # Hide victory label initially
 
 func add_point() -> void:
 	score += 1
-	score_label.text = "Score: " + str(score) + "/" + str(WIN_SCORE)
+	score_label.text = "Coins: " + str(score) + "/" + str(WIN_SCORE)
 
 	if score == WIN_SCORE:
 		victory()
