@@ -45,6 +45,11 @@ jobs:
           mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
           mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
 
+      - name: Create Export Directory
+        run: |
+          mkdir -p exports
+          mkdir -p exports/html
+
       - name: Build
         run: |
           ./godot --headless --export-release html
