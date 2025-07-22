@@ -38,19 +38,19 @@ region = Rect2(72, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5q800"]
 atlas = ExtResource("1_bln8p")
-region = Rect2(0, 0, 24, 24)
+region = Rect2(72, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35rgu"]
 atlas = ExtResource("1_bln8p")
-region = Rect2(24, 0, 24, 24)
+region = Rect2(48, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5vyh"]
 atlas = ExtResource("1_bln8p")
-region = Rect2(48, 0, 24, 24)
+region = Rect2(24, 0, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_452or"]
 atlas = ExtResource("1_bln8p")
-region = Rect2(72, 0, 24, 24)
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ukqwe"]
 animations = [{
@@ -101,8 +101,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_452or")
 }],
-"loop": true,
-"name": &"wake",
+"loop": false,
+"name": &"sleep",
 "speed": 10.0
 }]
 
@@ -115,9 +115,8 @@ script = ExtResource("1_0pvn7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_ukqwe")
-animation = &"idle"
+animation = &"sleep"
 autoplay = "idle"
-frame_progress = 0.0415143
 
 [node name="Killzone" parent="." instance=ExtResource("2_tuic5")]
 

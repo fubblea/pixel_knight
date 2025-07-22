@@ -11,6 +11,9 @@ var direction: Vector2 = Vector2.RIGHT
 @onready var raycast_left_side: RayCast2D = $RayCastLeftSide
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var killzone = $Killzone
+
+var is_asleep: bool = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -27,4 +30,14 @@ func _physics_process(delta: float) -> void:
         direction = Vector2.RIGHT
         animated_sprite_2d.flip_h = false
 
-    position += direction * SPEED * delta
+    if not is_asleep:
+        position += direction * SPEED * delta
+
+func go_to_sleep() -> void:
+    if is_asleep:
+        return # Prevent going to sleep if already asleep
+
+    killzone.queue_free() # Remove the killzone from the scene
+    animated_sprite_2d.stop()
+    animated_sprite_2d.play("sleep")
+    is_asleep = true
