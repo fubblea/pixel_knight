@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var move_speed: float = 20.0
+@export var SPEED: float = 20.0
 
 var direction: Vector2 = Vector2.RIGHT
 
@@ -13,7 +13,7 @@ var direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
     # Check right raycasts
     var hit_right = (not raycast_right_down.is_colliding()) or raycast_right_side.is_colliding()
 
@@ -27,4 +27,4 @@ func _process(delta: float) -> void:
         direction = Vector2.RIGHT
         animated_sprite_2d.flip_h = false
 
-    position += direction * move_speed * delta
+    position += direction * SPEED * delta

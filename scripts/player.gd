@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
+@export var SPEED: float = 100.0
+@export var JUMP_VELOCITY: float = -300.0
 
-@export var SPEED = 100.0
-@export var JUMP_VELOCITY = -300.0
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var is_dying: bool = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -22,4 +24,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
+	if is_dying:
+		velocity.x = 0 # Stop horizontal movement
+
 	move_and_slide()
+
+func die() -> void:
+	is_dying = true # Set dying state to true
+	animated_sprite_2d.play("death")
+	# Optionally, you can also emit a signal or handle other game logic here.
+	print("Player has died.")
