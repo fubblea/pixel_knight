@@ -33,15 +33,15 @@ jobs:
           mv Godot_v$GODOT_VERSION-stable_linux.x86_64 godot
           chmod +x godot
 
-      #   - name: Download Godot Export Templates
-      #     run: |
-      #       curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_export_templates.tpz
-      #       unzip export_templates.zip
+      - name: Download Godot Export Templates
+        run: |
+          curl -L -o export_templates.zip https://github.com/godotengine/godot-builds/releases/download/$GODOT_VERSION-stable/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          unzip export_templates.zip
 
-      #   - name: Install Export Templates
-      #     run: |
-      #       mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
-      #       mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+      - name: Install Export Templates
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+          mv ./templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
 
       - name: Build
         run: |
