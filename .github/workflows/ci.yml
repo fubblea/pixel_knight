@@ -70,7 +70,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: exports
-          path: exports/*
+          path: exports
 
   Publish:
     needs: Build
@@ -80,7 +80,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: exports
-          path: exports/*
+          path: exports
 
       - name: Download Butler
         run: |
@@ -95,6 +95,6 @@ jobs:
       - name: Push To Itch
         run: |
           ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
-          ./butler push ./exports/$PROJECT_NAME-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
-          ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
+          ./butler push ./exports/$PROJECT_NAME-itch.io-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
+          ./butler push ./exports/$PROJECT_NAME-itch.io-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows
         #  ./butler push ./exports/$PROJECT_NAME-macos.zip $ITCHIO_USERNAME/$PROJECT_NAME:mac
