@@ -1,3 +1,5 @@
+# Modified from: https://github.com/deplicator/github-godot4-itchio
+
 name: Deploy to Itch.io
 
 on:
@@ -47,7 +49,7 @@ jobs:
         run: |
           ./godot --headless --export-release html
           ./godot --headless --export-release linux
-          ./godot --headless --export-release macos
+          ./godot --headless --export-release macOS
           ./godot --headless --export-release windows
 
       - name: Zip HTML Export
