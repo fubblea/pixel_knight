@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://dd8e5awnlp5mt"]
+[gd_scene load_steps=13 format=4 uid="uid://dd8e5awnlp5mt"]
 
 [ext_resource type="PackedScene" uid="uid://dtkt8nqikbvgs" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bth2ve1fy8lmv" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bvu0gaqu2nbdq" path="res://scenes/coin.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://blt4ljo273r0r" path="res://scenes/movable_platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dukpuod0bk3hc" path="res://scenes/killzone.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://b6qc45tpm0f0g" path="res://scenes/green_slime.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("2_yqjtg")
@@ -219,7 +220,7 @@ tile_map_data = PackedByteArray("AAAGAB0AAAAAAA0AAAAHAB0AAAAAAA0AAAAIAB0AAAAAAA0
 tile_set = SubResource("TileSet_lnu2h")
 
 [node name="Mid" type="TileMapLayer" parent="World"]
-tile_map_data = PackedByteArray("AAAGAB0AAAAAAAAAAAAHAB0AAAAAAAAAAAAIAB0AAAAAAAAAAAAJAB8AAAAEAAAAAAAKAB8AAAAEAAAAAAALAB8AAAAEAAAAAAAMACAAAAAEAAAAAAANACAAAAAEAAAAAAAOACEAAAAEAAAAAAAPACEAAAAEAAAAAAAQACEAAAAEAAAAAAARACEAAAAEAAAAAAASACEAAAAJAAAAAAATACEAAAAKAAAAAAAUACEAAAALAAAAAAAVACEAAAAEAAAAAAAWACEAAAAEAAAAAAAXACEAAAAEAAAAAAAYAB8AAAAEAAAAAAAZAB8AAAAEAAAAAAAaAB8AAAAEAAAAAAAbAB4AAAAEAAAAAAAcAB4AAAAEAAAAAAAdAB0AAAAAAAAAAAAeAB0AAAAAAAAAAAAfAB0AAAAAAAAAAAAgAB0AAAAAAAAAAAAGAB4AAAAAAAEAAAAHAB4AAAAAAAEAAAAHAB8AAAABAAAAAAAIAB8AAAAAAAEAAAAIAB4AAAAAAAEAAAAGAB8AAAAAAAEAAAAVAB4AAAAAAAAAAAAWAB4AAAAAAAAAAAAYACAAAAAEAAEAAAAZACAAAAAEAAEAAAAaACAAAAAEAAEAAAAaACEAAAAEAAEAAAAZACEAAAAEAAEAAAAYACEAAAAEAAEAAAAsAB0AAAAAAAAAAAAtAB0AAAAAAAAAAAAuAB0AAAAAAAAAAAAPABwAAAAAAAAAAAAQABwAAAAAAAAAAAARABwAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAB0AAAAAAAAAAAAHAB0AAAAAAAAAAAAIAB0AAAAAAAAAAAAJAB8AAAAEAAAAAAAKAB8AAAAEAAAAAAALAB8AAAAEAAAAAAAMACAAAAAEAAAAAAANACAAAAAEAAAAAAAOACEAAAAEAAAAAAAPACEAAAAEAAAAAAAQACEAAAAEAAAAAAARACEAAAAEAAAAAAASACEAAAAJAAAAAAATACEAAAAKAAAAAAAUACEAAAALAAAAAAAVACEAAAAEAAAAAAAWACEAAAAEAAAAAAAXACEAAAAEAAAAAAAYAB8AAAAEAAAAAAAZAB8AAAAEAAAAAAAaAB8AAAAEAAAAAAAbAB4AAAAEAAAAAAAcAB4AAAAEAAAAAAAdAB0AAAAAAAAAAAAeAB0AAAAAAAAAAAAfAB0AAAAAAAAAAAAgAB0AAAAAAAAAAAAGAB4AAAAAAAEAAAAHAB4AAAAAAAEAAAAHAB8AAAABAAAAAAAIAB8AAAAAAAEAAAAIAB4AAAAAAAEAAAAGAB8AAAAAAAEAAAAYACAAAAAEAAEAAAAZACAAAAAEAAEAAAAaACAAAAAEAAEAAAAaACEAAAAEAAEAAAAZACEAAAAEAAEAAAAYACEAAAAEAAEAAAAsAB0AAAAAAAAAAAAtAB0AAAAAAAAAAAAuAB0AAAAAAAAAAAAPABwAAAAAAAAAAAAQABwAAAAAAAAAAAARABwAAAAAAAAAAAAUAB0AAAAAAAAAAAAVAB0AAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lnu2h")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
@@ -243,7 +244,7 @@ shape = SubResource("WorldBoundaryShape2D_p57ef")
 position = Vector2(264, 441)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("3_lbhrr")]
-position = Vector2(352, 472)
+position = Vector2(336, 458)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("3_lbhrr")]
 position = Vector2(488, 457)
@@ -270,3 +271,20 @@ libraries = {
 &"": SubResource("AnimationLibrary_iywne")
 }
 autoplay = "move"
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Green Slime" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(166, 497)
+
+[node name="Green Slime2" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(278, 528)
+
+[node name="Green Slime3" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(273, 448)
+
+[node name="Green Slime4" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(474, 464)
+
+[node name="Green Slime5" parent="Enemies" instance=ExtResource("6_p57ef")]
+position = Vector2(716, 464)
